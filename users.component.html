@@ -1,0 +1,145 @@
+<form  (ngSubmit)="userForm.valid && onSubmit()"  #userForm="ngForm" >
+    <div class="topSpace">  
+        <label for="userName">UserName</label>
+        <input type="text"
+        [(ngModel)]="model.userName"
+         #userName="ngModel"
+         id="userName"
+         name="userName"
+         ngModel
+         placeholder="UserName"
+         #userNameValue
+         required
+         minlength="3"
+         maxlength="15"
+         >
+         <div class="error" *ngIf="userName.touched && userName.errors">
+            <span *ngIf="userName.errors?.['required']">username is required</span>
+            <span *ngIf="userName.errors?.['minlength']">username has minlength</span>
+            <span *ngIf="userName.errors?.['maxlength']">username has maxlength</span>
+          </div>
+        
+   </div>
+   
+    <div class="topSpace">
+        <label for="email">Email</label> 
+        <input type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="model.email"
+         #email="ngModel"
+        ngModel 
+        placeholder="Email"
+         #emailValue
+         required
+         email
+        >
+        <div class="error" *ngIf="email.touched && email.errors">
+            <span *ngIf="email.errors?.['required']">email is required</span>
+            <span *ngIf="email.errors?.['email']">email is invalid</span>
+          </div>
+    </div>
+    <div class="topSpace">
+        <label for="address">Address</label>
+        <input type="text"
+        name="address" 
+        [(ngModel)]="model.address"
+         #address="ngModel"
+        ngModel
+        id="address" 
+        placeholder="Address"
+         #addressValue
+         required
+         minlength="3"
+         maxlength="15"
+         >
+         <div class="error" *ngIf="address.touched && address.errors">
+            <span *ngIf="address.errors?.['required']">address is required</span>
+            <span *ngIf="address.errors?.['minlength']">address has minlength</span>
+            <span *ngIf="address.errors?.['maxlength']">address has maxlength</span>
+          </div>
+            
+    </div>
+    <div class="topSpace">
+        <label for="city">City</label>
+        <input type="text" 
+        [(ngModel)]="model.city"
+         #city="ngModel"
+        name="city"
+        ngModel 
+        id="city" 
+        placeholder="City"
+         #cityValue
+         required
+         minlength="3"
+         maxlength="15"
+         >
+         <div class="error" *ngIf="city.touched && city.errors">
+            <span *ngIf="city.errors?.['required']">city is required</span>
+            <span *ngIf="city.errors?.['minlength']">city has minlength</span>
+            <span *ngIf="city.errors?.['maxlength']">city has maxlength</span>
+          </div>
+           
+    </div>
+    <div class="topSpace">
+        <label for="contactNo">ContactNo</label>
+        <input type="number" 
+        [(ngModel)]="model.contactNo"
+         #contactNo="ngModel"
+        name="contactNo" 
+        ngModel
+        id="contactNo" 
+        placeholder="ContactNo"
+         #contactNoValue
+         required
+         minlength="10"
+         maxlength="10"
+         >
+         <div class="error" *ngIf="contactNo.touched && contactNo.errors">
+            <span *ngIf="contactNo.errors?.['required']">contactNo is required</span>
+            <span *ngIf="contactNo.errors?.['minlength']">contactNo has minlength</span>
+            <span *ngIf="contactNo.errors?.['maxlength']">contactNo has maxlength</span>
+          </div>
+
+    </div>  
+    <button class="button" 
+    [disabled]="userForm.invalid"
+    (click)="addEvent(); 
+    userNameValue.value='';
+    emailValue.value='';
+    addressValue.value='';
+    cityValue.value='';
+    contactNoValue.value='';">Submit </button>       
+
+
+<table>
+    <thead>
+        <th class="id">ID</th>
+        <th class="userName">UserName</th>
+        <th class="email">Email</th>
+        <th class="address">Address</th>
+        <th class="city">City</th>
+        <th class="contactNo">ContactNo</th>
+        <th class="actions">Actions</th>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let item of list; let i=index">
+          <td class="id">{{i+1}}</td>
+          <td class="userName">{{item.userName}}</td>
+          <td class="email">{{item.email}}</td>
+          <td class="address">{{item.address}}</td>
+          <td class="city">{{item.city}}</td>
+          <td class="contactNo">{{item.contactNo}}</td>
+          <td class="actions"><button (click)="edit(i,item.userName,item.email,item.address,item.city,item.contactNo)" 
+            id="edit"> <i class="fa fa-pencil-square-o" 
+            aria-hidden="true"></i></button>
+            <button id="delete" (click)="delete(i)"><i class="fa fa-trash-o" 
+                aria-hidden="true" ></i></button></td>
+
+        </tr>
+    </tbody>
+</table>
+</form>
+
+

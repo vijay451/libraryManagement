@@ -1,0 +1,109 @@
+.topSpace{
+    margin-top: 30px;
+}
+
+input{
+    width:1190px;
+    height:37px;
+    border: 1px solid lightgrey;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+label{
+    margin-left: 50px;
+}
+
+.button{
+    width: 86px;
+    height: 47px;
+    margin: 23px 0 0 693px;
+    background-color: #00BFFF	;
+    border: none;
+    color: white;
+}
+
+#userName{
+    margin-left: 157px;
+}
+
+#email{
+    margin-left: 189px ;
+}
+
+#address{
+    margin-left: 173px;
+}
+
+#city{
+    margin-left: 202px;
+}
+
+#contactNo{
+    margin-left: 159px;
+}
+
+.id{
+    padding-left: 10px;
+}
+
+.userName{
+    padding-left: 25px;
+}
+
+.email{
+    padding-left: 30px;
+}
+
+.address{
+    padding-left: 30px;
+}
+
+.city{
+    padding-left: 30px;
+}
+
+.contactNo{
+    padding-left: 30px;
+}
+
+.actions{
+    padding-left: 30px;
+    padding-right: 70px;
+}
+
+th{
+    padding-top: 15px;
+}
+
+td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+table{
+    background-color: darkseagreen;
+    margin-top: 23px;
+    margin-left: 360px;
+}
+
+i{
+    padding-left: 10px;
+}
+
+.error { 
+    color:  darksalmon;
+    margin-left: 350px;
+  }
+
+#edit{
+    background-color: green;
+    color: white;
+}
+
+#delete{
+    background-color: red;
+    color:white;
+}

@@ -1,0 +1,73 @@
+#users{
+    width: 75px;
+    height: 42px;
+    background-color: grey;
+    color: white;
+    border: none;
+    margin: 10px 0 0 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#books{
+    width: 75px;
+    height: 42px;
+    background-color: grey;
+    color: white;
+    border: none;
+    margin: 10px 0 0 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+input{
+    margin: 0 90px 0 20px;
+    width: 287px;
+    height: 39px;
+}
+
+#issuedBook{
+    padding: 6px 110px;
+    margin-left: 90px;
+}
+
+.content{
+    margin: 100px 0 0 100px;
+}
+
+table{
+    background-color: darkseagreen;
+    margin-top: 80px;
+    margin-left: 280px;
+}
+
+.id{
+    padding-left: 15px;
+}
+
+.userName1{
+    padding-left: 100px;
+}
+
+.book{
+    padding-left: 200px;
+    padding-right: 160px;
+}
+
+th{
+    padding-top: 15px;
+}
+
+td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.error{
+    font-size: small;
+    color: red;
+    margin-left: 350px;
+}

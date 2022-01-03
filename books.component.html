@@ -1,0 +1,162 @@
+
+<form (ngSubmit)="userForm.valid&&onSubmit()" #userForm="ngForm">
+    <div class="topSpace">
+        <label for="ISBN">ISBN</label>
+        <input type="text" 
+        id="ISBN"
+        name="ISBN"
+        [(ngModel)]="model.ISBN"
+        #ISBN="ngModel"
+        required
+        ngModel
+        placeholder="ISBN"
+        #isbnValue
+        required
+        minlength="3"
+        maxlength="15"
+        >
+        <div class="error" *ngIf="ISBN.touched && ISBN.errors ">
+            <span *ngIf="ISBN.errors?.['required']">ISBN is required</span>
+            <span *ngIf="ISBN.errors?.['minlength']">ISBN should have minimum 3 letters</span>
+            <span *ngIf="ISBN.errors?.['maxlength']">ISBN should have maximum 15 letters</span>
+          </div>
+     </div>
+    <div class="topSpace">
+         <label for="bookName">BookName</label>
+        <input type="text" 
+        [(ngModel)]="model.bookName"
+        #bookName="ngModel"
+        id="bookName" 
+        name="bookName" 
+        ngModel
+        placeholder="BookName"
+        #booknameValue
+        required
+        minlength="3"
+        maxlength="15"
+        >
+        <div class="error" *ngIf="bookName.touched && bookName.errors" >
+            <span *ngIf="bookName.errors?.['required']">BookName is required</span>
+            <span *ngIf="bookName.errors?.['minlength']">BookName should have minimum 3 letters</span>
+            <span *ngIf="bookName.errors?.['maxlength']">BookName should have maximum 15 letters</span>
+          </div>
+         
+    </div>
+    <div class="topSpace">
+        <label for="author">Author</label>
+        <input type="text" 
+        [(ngModel)]="model.author"
+        #author="ngModel"
+        name="author" 
+        ngModel
+        id="author" 
+        placeholder="Author"
+        #authorValue
+        required
+        minlength="3"
+        maxlength="15"
+        >
+        <div class="error" *ngIf="author.touched && author.errors">
+            <span *ngIf="author.errors?.['required']">Author is required</span>
+            <span *ngIf="author.errors?.['minlength']">Author should have minimum 3 letters</span>
+            <span *ngIf="author.errors?.['maxlength']">Author should have maximum 15 letters</span>
+          </div>
+         
+    </div>
+    <div class="topSpace">
+        <label for="publisher">Publisher</label>
+        <input type="text"
+        [(ngModel)]="model.publisher"
+        #publisher="ngModel" 
+        name="publisher" 
+        id="publisher"
+        ngModel 
+        placeholder="Publisher"
+        #publisherValue
+        required
+        minlength="3"
+        maxlength="15"
+        >
+        <div class="error" *ngIf="publisher.touched && publisher.errors">
+            <span *ngIf="publisher.errors?.['required']">Publisher is required</span>
+            <span *ngIf="publisher.errors?.['minlength']">Publisher should have minimum 3 letters</span>
+            <span *ngIf="publisher.errors?.['maxlength']">Publisher should have maximum 15 letters</span>
+          </div>
+            
+    </div>
+    <div class="topSpace">
+        <label for="quantity">Quantity</label>
+        <input type="number" 
+        name="quantity" 
+        [(ngModel)]="model.quantity"
+        #quantity="ngModel" 
+        ngModel
+        id="quantity" 
+        placeholder="Quantity"
+        #quantityValue
+        required
+        minlength="3"
+        maxlength="15"
+       >
+       <div class="error" *ngIf="quantity.touched && quantity.errors">
+        <span *ngIf="quantity.errors?.['required']">Quantity is required</span>
+        <span *ngIf="quantity.errors?.['minlength']">Quantity should have minimum 3 letters</span>
+        <span *ngIf="quantity.errors?.['maxlength']">Quantity should have maximum 15 letters</span>
+      </div>
+          
+    </div>   
+    <button class="button" 
+    *ngIf="!isEdit"
+    [disabled]="userForm.invalid"
+    (click)="addEvent();
+    isbnValue.value='';
+    booknameValue.value='';
+    authorValue.value='';
+    publisherValue.value='';
+    quantityValue.value=''">Submit</button>
+
+    <button class="button" 
+    *ngIf="isEdit"
+    [disabled]="userForm.invalid"
+    (click)="updateEvent();
+    isbnValue.value='';
+    booknameValue.value='';
+    authorValue.value='';
+    publisherValue.value='';
+    quantityValue.value=''">Submit</button>
+
+  
+       
+</form>
+
+<table>
+    <thead>
+        <th class="id">ID</th>
+        <th class="ISBN">ISBN</th>
+        <th class="bookName">BookName</th>
+        <th class="author">Author</th>
+        <th class="publisher">Publisher</th>
+        <th class="quantity">Quantity</th>
+        <th class="issuedBook">issuedBook</th>
+        <th class="actions">Actions</th>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let item of booklist; let i=index">
+            <td class="id">{{i+1}}</td>
+            <td class="ISBN">{{item.ISBN}}</td>
+            <td class="bookName">{{item.bookName}}</td>
+            <td class="author">{{item.author}}</td>
+            <td class="publisher">{{item.publisher}}</td>
+            <td class="quantity">{{item.quantity}}</td>
+            <td class="issuedBook" >{{item.issuedBook}}</td>
+            <td class="actions"><button id="edit" 
+                (click)="edit(i,item.ISBN,item.bookName,item.author,item.publisher,item.quantity)">
+                <i class="fa fa-pencil-square-o" 
+                aria-hidden="true"
+                ></i></button>
+              <button (click)="delete(i)" id="delete"><i class="fa fa-trash-o" aria-hidden="true" ></i></button></td>
+  
+          </tr>
+    </tbody>
+</table>

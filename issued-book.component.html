@@ -1,0 +1,46 @@
+<div class="content">
+    
+    
+    
+    <select id="users" class="dropdown-toggle" (change)="changeuser($event)" >
+        
+        <option selected disabled hidden  #userValue>Users</option>
+        <option *ngFor="let item of list; let i=index">{{item.userName}}</option>
+        
+       
+    </select>
+ 
+    <select  id="books" class="dropdown-toggle" (change)="changebook($event)">
+        <option selected disabled hidden  #bookValue >books</option>
+       <option *ngFor="let item of bookList; let i=index">{{item.bookName}}</option>
+    </select>
+ 
+ 
+ <input type="text" id="count" #inputValue placeholder="count">
+ 
+ <button type="button" class="btn btn-primary" id="issuedBook"
+ (click)="addEvent(); inputValue.value=''">Issued Book</button>
+</div>
+<div *ngIf="isError">
+<span   class="error" >{{quantityVal}} books are left</span>
+</div>
+<div class="table">
+ <table>
+     <thead>
+         <th class="id">ID</th>
+         <th class="userName1">UserName</th>
+         <th class="book">Book</th>
+     </thead>
+     <tbody>
+         
+         <tr *ngFor="let items of issuedBookList; let i=index">
+             <td class="id">{{i+1}}</td>
+             <td class="userName1">{{items.userName}}</td>
+             <td class="book">{{items.book}}__{{items.quantity}}</td>
+         </tr>
+         
+         </tbody>
+ </table>
+</div>
+
+
